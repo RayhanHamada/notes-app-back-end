@@ -2,7 +2,11 @@ const { nanoid } = require('nanoid');
 const notes = require('./notes');
 
 /**
- * @type {import('@hapi/hapi').Lifecycle.Method}
+ * @typedef {import('@hapi/hapi').Lifecycle.Method} Handler
+ */
+
+/**
+ * @type {Handler}
  */
 const addNoteHandler = (request, h) => {
   const { title, tags, body } = request.payload;
@@ -46,6 +50,9 @@ const addNoteHandler = (request, h) => {
   return response;
 };
 
+/**
+ * @type {Handler}
+ */
 const getAllNotesHandler = () => ({
   status: 'success',
   data: {
@@ -53,6 +60,9 @@ const getAllNotesHandler = () => ({
   },
 });
 
+/**
+ * @type {Handler}
+ */
 const getNoteByIdHandler = (request, h) => {
   const { id } = request.params;
 
@@ -76,6 +86,9 @@ const getNoteByIdHandler = (request, h) => {
   return response;
 };
 
+/**
+ * @type {Handler}
+ */
 const editNoteByIdHandler = (request, h) => {
   const { id } = request.params;
 
@@ -107,6 +120,9 @@ const editNoteByIdHandler = (request, h) => {
   return response;
 };
 
+/**
+ * @type {Handler}
+ */
 const deleteNoteByIdHandler = (request, h) => {
   const { id } = request.params;
 
