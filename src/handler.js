@@ -105,6 +105,7 @@ const editNoteByIdHandler = (request, h) => {
       body,
       updatedAt,
     };
+
     const response = h.response({
       status: 'success',
       message: 'Catatan berhasil diperbarui',
@@ -112,6 +113,7 @@ const editNoteByIdHandler = (request, h) => {
     response.code(200);
     return response;
   }
+
   const response = h.response({
     status: 'fail',
     message: 'Gagal memperbarui catatan. Id tidak ditemukan',
